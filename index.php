@@ -1,3 +1,4 @@
+<?php include("./php/connect_DB.php");?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,13 +11,13 @@
     <title>Blog App</title>
   </head>
   <body>
-    <?php include("./php/header.php") ?>
+    <?php include("./php/header.php");?>
     <div class="container">
       
     </div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-    <?php include("./php/footer.php") ?>
+    <?php include("./php/footer.php");?>
 
     <script src="../Blog/js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
