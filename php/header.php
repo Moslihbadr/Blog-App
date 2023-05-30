@@ -7,7 +7,9 @@
     <div class="offcanvas offcanvas-end bg-dark text-light" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">BM Blog</h5>
-        <button type="button" class="btn-close text-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="button" class="btn text-light" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="fa-solid fa-xmark fs-5"></i>
+        </button>
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-md-grow-1 pe-3">
