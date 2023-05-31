@@ -21,13 +21,6 @@
       $result = mysqli_query($conn, $query);
       $result_check = mysqli_num_rows($result);
 
-      function blog_DOC() {
-        $currentDateTime = date("Y-m-d H:i:s");
-        $formattedDateTime = "Posted on " . date("Y-m-d") . " at " . date("h:i A", strtotime($currentDateTime));
-        return $formattedDateTime;
-      }
-
-
       if ($result_check > 0) {
         while($row = mysqli_fetch_assoc($result)) {
           echo '<section class="my-4 ps-4 py-1 border-start border-danger" style="border-width: 5px!important;">
