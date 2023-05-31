@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $blog_body = $_POST['blog_body'];
   
   // Prepare the query with form data
-  $query = "INSERT INTO blogs (blog_Writer, blog_Title, blog_Body, blog_DOC) VALUES ('$blog_writer', '$blog_title', '$blog_body', ".blog_DOC().");";
+  $query = "INSERT INTO blogs (blog_Writer, blog_Title, blog_Body, blog_DOC) VALUES ('$blog_writer', '$blog_title', '$blog_body', '".blog_DOC()."');";
   
   // Execute the query
   $result = mysqli_query($conn, $query);
