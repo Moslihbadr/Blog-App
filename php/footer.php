@@ -3,8 +3,8 @@
   <div class="container p-4 pb-0">
     <section>
     <ul class="nav justify-content-center pb-3 mb-3">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Blogs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">New Blog</a></li>
+      <li class="nav-item"><a href="../Blog/index.php" class="nav-link px-2 text-muted">Blogs</a></li>
+      <li class="nav-item"><a href="../Blog/new_blog.php" class="nav-link px-2 text-muted">New Blog</a></li>
     </ul>
     </section>
     <section class="mb-4">
