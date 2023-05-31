@@ -11,7 +11,7 @@
     <title>Blog App</title>
   </head>
   <body>
-    <?php include("./php/header.php");?>
+  <br><br>
     <div class="container mt-5">
       
     <?php
