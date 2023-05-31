@@ -12,8 +12,22 @@
   </head>
   <body>
     <?php include("./php/header.php");?>
-    <div class="container">
+    <div class="container mt-5">
       
+    <?php
+
+      $query = "SELECT * FROM blogs;";
+      $result = mysqli_query($conn, $query);
+      $result_check = mysqli_num_rows($result);
+
+      if ($result_check > 0) {
+        while($row = mysqli_fetch_assoc($result)){
+          echo $row['blog_Title'];
+        }
+      }
+
+    ?>
+
     </div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 

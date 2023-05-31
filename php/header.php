@@ -14,10 +14,10 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-md-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Blogs</a>
+            <a class="nav-link active" aria-current="page" href="../Blog/index.php">Blogs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">New Blog</a>
+            <a class="nav-link" href="../Blog/new_blog.php">New Blog</a>
           </li>
         </ul>
       </div>
