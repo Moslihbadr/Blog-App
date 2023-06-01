@@ -14,15 +14,15 @@
 <body>
 <?php include("./php/header.php");?>
 <br><br>
-  <div class="container d-flex justify-content-center flex-column my-5 w-50 w-md-100">
+  <div class="container d-flex justify-content-center flex-column my-5 w-100">
       <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Your Name :</label>
         <input type="text" class="form-control" id="exampleFormControlInput1" name="blog_writer">
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Blog Title :</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" name="blog_title">
+        <label for="exampleFormControlInput2" class="form-label">Blog Title :</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="blog_title">
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Blog Body :</label>
@@ -52,11 +52,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $blog_title = $_POST['blog_title'];
   $blog_body = $_POST['blog_body'];
   
-  // Prepare the query with form data
-  $query = "INSERT INTO blogs (blog_Writer, blog_Title, blog_Body, blog_DOC) VALUES ('$blog_writer', '$blog_title', '$blog_body', ".blog_DOC().");";
-  
-  // Execute the query
-  $result = mysqli_query($conn, $query);
+  // Check if the inputs are not empty
+  if (!empty($blog_writer) && !empty($blog_title) && !empty($blog_body)) {
+
+    // Prepare the query with form data
+    $query = "INSERT INTO blogs (blog_Writer, blog_Title, blog_Body, blog_DOC) VALUES ('$blog_writer', '$blog_title', '$blog_body', '".blog_DOC()."');";
+    
+    // Execute the query
+    $result = mysqli_query($conn, $query);
+  }
 }
 
 
