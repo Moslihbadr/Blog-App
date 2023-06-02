@@ -17,6 +17,12 @@
       <div class="h3">All Blogs</div>
     <?php
 
+  function format_title(string $title) {
+    $formatted_title = str_replace(' ', '-', trim($title));
+    return $formatted_title;
+  }
+
+
       $query = "SELECT * FROM blogs;";
       $result = mysqli_query($conn, $query);
       $result_check = mysqli_num_rows($result);
@@ -25,7 +31,7 @@
         while ($row = mysqli_fetch_assoc($result)) {
           echo '<section class="my-4 ps-4 py-1 border-start border-danger" style="border-width: 5px!important;">
                   <div class="h5 text-succes-hover" style="cursor: pointer;">
-                    <a class="text-decoration-none text-dark" href="blog_details.php?id=' . $row['blog_ID'] . '">' . $row['blog_Title'] . '</a>
+                    <a class="text-decoration-none text-dark" href="blog_details.php?blog_title=' . format_title($row['blog_Title']) . '&id=' . $row['blog_ID'] . '">' . $row['blog_Title'] . '</a>
                     <span class="h6 mx-1 text-secondary text-opacity-75">by ' . $row['blog_Writer'] . '</span>
                   </div>
                   <div class="h6 text-secondary">' . $row['blog_Body'] . '</div>

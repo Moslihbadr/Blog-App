@@ -52,14 +52,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $blog_title = $_POST['blog_title'];
   $blog_body = $_POST['blog_body'];
   
-  // Check if the inputs are not empty
-  if (!empty($blog_writer) && !empty($blog_title) && !empty($blog_body)) {
-
+  if (!empty($blog_body) && !empty($blog_title) && !empty($blog_writer)) {
+    
     // Prepare the query with form data
     $query = "INSERT INTO blogs (blog_Writer, blog_Title, blog_Body, blog_DOC) VALUES ('$blog_writer', '$blog_title', '$blog_body', '".blog_DOC()."');";
     
     // Execute the query
     $result = mysqli_query($conn, $query);
+  }
+  else {
+    echo "Please enter a valid data"; // this line is just for testing and it will be removed
   }
 }
 
