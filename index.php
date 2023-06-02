@@ -22,12 +22,15 @@
       $result_check = mysqli_num_rows($result);
 
       if ($result_check > 0) {
-        while($row = mysqli_fetch_assoc($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
           echo '<section class="my-4 ps-4 py-1 border-start border-danger" style="border-width: 5px!important;">
-          <div class="h5 text-succes-hover" style="cursor: pointer;">' . $row['blog_Title'] . ' <span class="h6 mx-1 text-secondary text-opacity-75">by ' . $row['blog_Writer'] . '</span></div>
-          <div class="h6 text-secondary">' . $row['blog_Body'] . '</div>
-          <div class="text-muted small">' . $row['blog_DOC'] . '</div>
-          </section>';
+                  <div class="h5 text-succes-hover" style="cursor: pointer;">
+                    <a class="text-decoration-none text-dark" href="blog_details.php?id=' . $row['blog_ID'] . '">' . $row['blog_Title'] . '</a>
+                    <span class="h6 mx-1 text-secondary text-opacity-75">by ' . $row['blog_Writer'] . '</span>
+                  </div>
+                  <div class="h6 text-secondary">' . $row['blog_Body'] . '</div>
+                  <div class="text-muted small">' . $row['blog_DOC'] . '</div>
+                </section>';
         }
       }
 
