@@ -24,8 +24,7 @@ if (isset($_POST['delete'])) {
   $exec = mysqli_query($conn, $sql);
 
   // Redirect the user back to the blog listing page
-  header("Location: /website/blog/index.php");
-  
+  header("Location: /website/blog/index.php?blog_deleted=true");  
 }
 ?>
 
@@ -45,14 +44,18 @@ if (isset($_POST['delete'])) {
   <br><br><br>
   <div class="container mt-5">
     <div class="d-flex justify-content-between px-1">
-      <div class="h3"><?php echo $row['blog_Title'] ?></div>
+      <div class="description my-3">
+        <div class="h3">Title : <?php echo $row['blog_Title'] ?></div>
+        <div class="h6">Writer : <?php echo $row['blog_Writer'] ?></div>
+        <small class=""><?php echo $row['blog_DOC'] ?></small>
+      </div>
       <form method="POST">
-        <i class="fa fa-trash text-danger me-2" style="cursor: pointer;" for="delete" onclick="document.getElementById('delete').click();">
+        <i class="fa fa-trash text-danger me-2 mt-4 fs-md-4" style="cursor: pointer;" for="delete" onclick="document.getElementById('delete').click();">
           <input class='' type="submit" value="" name="delete" id="delete">
         </i>
       </form>
     </div>
-    <div class="p-2">
+    <div class="ps-2">
       <?php echo $row['blog_Body'] ?>
     </div>
   </div>

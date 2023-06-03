@@ -14,8 +14,10 @@
 <body>
 <?php include("./php/header.php");?>
 <br><br>
-  <div class="container d-flex justify-content-center flex-column my-5 w-100">
-      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+  <div class="container d-flex justify-content-center flex-column mt-5 w-100" id="form-container">
+    <div class="h1 mt-2  text-center">Start blogging today</div>
+    <div class="h6 text-center mb-4">Share your ideas with the world!</div>
+      <form class="mt-5" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="add_blog" method="POST">
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Your Name :</label>
         <input type="text" class="form-control" id="exampleFormControlInput1" name="blog_writer">
@@ -35,6 +37,8 @@
   <?php include("./php/footer.php");?>
 
   <script src="../Blog/js/bootstrap.min.js"></script>
+  <script src="../Blog/js/jquery.min.js"></script>
+  <script src="../Blog/js/script.js"></script>
 </body>
 </html>
 <?php 
@@ -57,6 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // Execute the query
     $result = mysqli_query($conn, $query);
+
+    echo "<script> $('#form-container').before(`<div class='mt-2 alert alert-success alert-dismissible fade show text-center' role='alert'><strong>Blog successfully Added.</strong><button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>`)</script>";
+
+
+
   }
   else {
     echo "Please enter a valid data"; // this line is just for testing and it will be removed

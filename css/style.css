@@ -6,6 +6,8 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
+  background: #EEE;
+
 }
 
 .container {
@@ -19,4 +21,12 @@ footer {
 #delete {
   background-color: transparent;
   border: none;
+}
+
+#blog-body {
+  overflow: hidden;
+  width:90%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }

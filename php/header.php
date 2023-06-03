@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-md">
   <div class="container">
-    <a class="navbar-brand" href="#">BM Blog</a>
+    <a class="navbar-brand" href="#">Blog App</a>
     <button class="navbar-toggler navbar-toggler-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
