@@ -42,7 +42,7 @@ $row = mysqli_fetch_assoc($result);
   
   <?php include("./php/footer.php");?>
 
-  <script src="../Blog/js/code.jquery.com_jquery-3.7.0.min.js"></script>
+  <script src="../Blog/js/jquery.min.js"></script>
   <script src="../Blog/js/script.js"></script>
   <script src="../Blog/js/bootstrap.min.js"></script>
 </body>
