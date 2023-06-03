@@ -15,3 +15,8 @@ body {
 footer {
   flex-shrink: 0;
 }
+
+#delete {
+  background-color: transparent;
+  border: none;
+}

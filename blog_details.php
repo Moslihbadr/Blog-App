@@ -14,6 +14,19 @@ $result = mysqli_query($conn, $query);
 // get the data about the blog
 $row = mysqli_fetch_assoc($result);
 
+// Check if a form was submitted
+if (isset($_POST['delete'])) {
+
+  // Get the ID value from the URL
+  $id = $_GET['id'];
+
+  $sql = 'DELETE FROM blogs WHERE blog_ID = '.$id.';';
+  $exec = mysqli_query($conn, $sql);
+
+  // Redirect the user back to the blog listing page
+  header("Location: /website/blog/index.php");
+  
+}
 ?>
 
 <!DOCTYPE html>
@@ -33,11 +46,15 @@ $row = mysqli_fetch_assoc($result);
   <div class="container mt-5">
     <div class="d-flex justify-content-between px-1">
       <div class="h3"><?php echo $row['blog_Title'] ?></div>
-      <i class="fa fa-trash text-danger me-2" style="cursor: pointer;"></i>
+      <form method="POST">
+        <i class="fa fa-trash text-danger me-2" style="cursor: pointer;" for="delete" onclick="document.getElementById('delete').click();">
+          <input class='' type="submit" value="" name="delete" id="delete">
+        </i>
+      </form>
     </div>
     <div class="p-2">
-    <?php echo $row['blog_Body'] ?>
-  </div>
+      <?php echo $row['blog_Body'] ?>
+    </div>
   </div>
   
   <?php include("./php/footer.php");?>
