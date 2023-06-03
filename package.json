@@ -1,0 +1,9 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "a dynamic blog application built using HTML, CSS, Bootstrap, jQuery, PHP, and MySQL.",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "jquery": "3.7.0"
+  }
+}
