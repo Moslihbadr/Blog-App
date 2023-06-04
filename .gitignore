@@ -1,4 +1,4 @@
-# ignore libraries files
+# ignore library files
 /css/bootstrap.min.css
 /js/bootstrap.min.js
 /js/jquery.min.js
