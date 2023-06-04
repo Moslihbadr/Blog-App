@@ -12,8 +12,24 @@
 <body>
   <?php include("./php/header.php");?>
   <br><br><br>
-  <div class="container" style="width: 270px;">
-
+  <div class="container my-4" style="max-width: 400px;">
+  <div class="h3 text-center mb-1">Login to Blog App</div>
+    <form class="card p-3 mt-3" method="POST">
+      <div class="mb-3 form-floating">
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address" name="email">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      </div>
+      <div class="mb-3 form-floating">
+        <input type="password" class="form-control" id="password" placeholder="Password" style="position: relative;" name="password">
+        <i id="eye" class="fa-solid fa-eye"></i>
+        <label for="password" class="form-label">Password</label>
+      </div>
+      <div class="mb-3 ms-2">
+        <div id="emailHelp" class="form-text">Don't have an account? <a href="./sign_up.php">sign up</a></div>
+      </div>
+      <button type="submit" class="btn btn-success">Login</button>
+    </form>
+  </div>
 
   <?php include("./php/footer.php");?>
 

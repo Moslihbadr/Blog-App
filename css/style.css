@@ -30,3 +30,10 @@ footer {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
+#eye {
+  position: absolute;
+  top: 35%;
+  right: 20px;
+  cursor: pointer;
+}
