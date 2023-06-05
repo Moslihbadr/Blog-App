@@ -53,21 +53,21 @@ if (isset($_POST["login"])) {
   <div class="container my-4" style="max-width: 400px;">
     <div class="h3 text-center mb-1">Login to Blog App</div>
     <form id="login-form" class="card p-3 mt-3" method="POST">
-      <div class="mb-3 form-floating">
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address" name="email">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-      </div>
-      <div class="mb-3 form-floating">
-        <input type="password" class="form-control" id="password" placeholder="Password" style="position: relative;" name="password">
-        <i class="fa-solid fa-eye eye"></i>
-        <label for="password" class="form-label">Password</label>
-      </div>
       <?php if (!empty($errorMessage)): ?>
         <div class="mt-2 alert alert-danger alert-dismissible fade show text-center" role="alert">
           <strong><?php echo $errorMessage; ?></strong>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
       <?php endif; ?>
+      <div class="mb-3 form-floating">
+        <input type="email" id="login-email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address" name="email" required>
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+      </div>
+      <div class="mb-3 form-floating">
+        <input type="password" class="form-control" id="password" placeholder="Password" style="position: relative;" name="password" required>
+        <i class="fa-solid fa-eye eye"></i>
+        <label for="password" class="form-label">Password</label>
+      </div>
       <div class="mb-3 ms-2">
         <div id="emailHelp" class="form-text">Don't have an account? <a href="./sign_up.php">Sign up</a></div>
       </div>

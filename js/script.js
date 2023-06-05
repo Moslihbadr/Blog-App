@@ -10,6 +10,12 @@ $(document).ready(function() {
     }
   })
   
+  // validate email address
+  function validateEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  }
+  
   //check inputs validation
   function errorMessage(message){ return `
     <div class="mt-2 alert alert-danger alert-dismissible fade show text-center" role="alert">
@@ -32,14 +38,15 @@ $(document).ready(function() {
       $("#signup-form").prepend(errorMessage('Password must be at least 8 characters with uppercase, lowercase, and number.'));
     }
 
-    // validate email address
-    function validateName(email) {
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return regex.test(email);
-    }
-    if (!(validateName($("#email").val()))) {
+    if (!(validateEmail($("#email").val()))) {
       e.preventDefault();
       $("#signup-form").prepend(errorMessage('Please enter a valid email address'));
+    }
+  })
+  $('#login-form').on('submit',(e)=>{
+    if (!(validateEmail($("#login-email").val()))) {
+      e.preventDefault();
+      $("#login-form").prepend(errorMessage('Please enter a valid email address'));
     }
   })
 })
