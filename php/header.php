@@ -17,7 +17,7 @@ session_start();
         </button>
       </div>
       <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-md-grow-1 pe-3">
+        <ul class="navbar-nav justify-content-end align-items-center flex-md-grow-1 pe-3">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="../Blog/index.php">Home</a>
           </li>
@@ -26,7 +26,8 @@ session_start();
           </li>
           <?php if (isset($_SESSION['login'])){ ?>
           <li class="nav-item">
-            <a href="./php/logout.php" class="nav-link">logout</a>
+            <a href="./php/logout.php" class="nav-link" title="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+            
           </li>
           <?php } else {?>
           <li class="nav-item">

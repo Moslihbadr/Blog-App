@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   }
   else {
-    echo "Please enter a valid data"; // this line is just for testing and it will be removed
+    echo "<script> $('#form-container').before(`<div class='mt-2 alert alert-danger alert-dismissible fade show text-center' role='alert'><strong>Please Fill All Inputs.</strong><button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>`)</script>";
   }
 }
 
