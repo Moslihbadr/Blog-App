@@ -31,7 +31,7 @@ footer {
   -webkit-box-orient: vertical;
 }
 
-#eye {
+.eye {
   position: absolute;
   top: 35%;
   right: 20px;

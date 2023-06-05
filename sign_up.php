@@ -30,12 +30,12 @@
       </div>
       <div class="mb-3 form-floating">
         <input type="password" class="form-control" id="password" placeholder="Password" style="position: relative;" name="password">
-        <i id="eye" class="fa-solid fa-eye"></i>
+        <i class="fa-solid fa-eye eye"></i>
         <label for="password" class="form-label">Password</label>
       </div>
       <div class="mb-3 form-floating">
         <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password" style="position: relative;" name="cpassword">
-        <i id="eye" class="fa-solid fa-eye"></i>
+        <i class="fa-solid fa-eye eye"></i>
         <label for="cpassword" class="form-label">Confirm Password</label>
       </div>
       <div class="mb-3 ms-2">
