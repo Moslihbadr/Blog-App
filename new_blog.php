@@ -26,15 +26,15 @@ if (!$_SESSION['login']) {
       <form class="mt-5" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="add_blog" method="POST">
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Your Name :</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" name="blog_writer">
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="blog_writer" required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlInput2" class="form-label">Blog Title :</label>
-        <input type="text" class="form-control" id="exampleFormControlInput2" name="blog_title">
+        <input type="text" class="form-control" id="exampleFormControlInput2" name="blog_title" required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Blog Body :</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="blog_body"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="blog_body" required></textarea>
       </div>
       <input type="submit" value="Submit" class="btn btn-outline-success">
     </form>

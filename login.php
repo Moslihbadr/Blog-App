@@ -25,7 +25,7 @@ if (isset($_POST["login"])) {
       $_SESSION["password"] = $password;
       $_SESSION["login"] = true;
 
-      header('Location: index.php');
+      header('Location: new_blog.php');
       exit();
     } else {
       $errorMessage = "Invalid Password, Try again.";

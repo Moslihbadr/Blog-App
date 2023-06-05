@@ -1,10 +1,32 @@
+<?php 
+if (!(session_status() === PHP_SESSION_ACTIVE)) {
+  session_start();
+}
+?>
+
 <div class="container-fluid px-0 pt-5">
   <footer class="bg-dark text-center text-white">
   <div class="container p-4 pb-0">
     <section>
-    <ul class="nav justify-content-center pb-3 mb-3 ">
-      <li class="nav-item"><a href="../Blog/index.php" class="nav-link px-2 text-secondary">Home</a></li>
-      <li class="nav-item"><a href="../Blog/new_blog.php" class="nav-link px-2 text-secondary">New Blog</a></li>
+    <ul class="nav justify-content-center pb-3 mb-3">
+      <li class="nav-item">
+        <a href="../Blog/index.php" class="nav-link px-2 text-secondary">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="../Blog/new_blog.php" class="nav-link px-2 text-secondary">New Blog</a>
+      </li>
+      <?php if (isset($_SESSION['login'])){ ?>
+          <li class="nav-item">
+            <a href="./php/logout.php" class="nav-link px-2 text-secondary" title="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+          </li>
+          <?php } else {?>
+          <li class="nav-item">
+            <a class="nav-link px-2 text-secondary" href="../Blog/login.php">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-2 text-secondary" href="../Blog/sign_up.php">Sign up</a>
+          </li>
+      <?php }; ?>
     </ul>
     </section>
     <section class="mb-4">
