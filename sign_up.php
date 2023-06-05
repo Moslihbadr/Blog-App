@@ -9,7 +9,7 @@ if (isset($_POST['signup'])){
   $email = $_POST['email'];
   $password = $_POST['password'];
   
-  // Hash the password using bcrypt // Add user signup functionality
+  // Hash the password using bcrypt
   $hashed_password = password_hash($password, PASSWORD_DEFAULT);
   
   $query = "INSERT INTO users (fname, lname, email, password) VALUE ('$first_name','$last_name', '$email', '$hashed_password');";

@@ -1,3 +1,18 @@
+<?php 
+include("./php/connect_DB.php");
+
+if (isset($_POST["login"])) {
+  
+  $email = $_POST["email"];
+  $password = $_POST["password"];
+
+  
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +42,7 @@
       <div class="mb-3 ms-2">
         <div id="emailHelp" class="form-text">Don't have an account? <a href="./sign_up.php">sign up</a></div>
       </div>
-      <button type="submit" class="btn btn-success">Login</button>
+      <button type="submit" name="login" class="btn btn-success">Login</button>
     </form>
   </div>
 
