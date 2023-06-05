@@ -9,6 +9,7 @@ A modern and user-friendly blog app built using HTML, CSS, Bootstrap, jQuery, PH
 - **Blog Creation:** Users can create their own blogs by providing a title, content, and additional details.
 - **Blog Management:** Users have complete control over their blogs and can delete them if desired.
 - **Blog Discovery:** Users can explore and read blogs created by other users, expanding their knowledge and interests.
+- **User Authentication:** Secure login and registration feature to protect user accounts and provide personalized experiences.
 - **User-friendly Interface:** The app features a clean and intuitive user interface, enhancing the user experience and making blog creation and reading a seamless process.
 
 ## Technologies Used
@@ -31,7 +32,8 @@ A modern and user-friendly blog app built using HTML, CSS, Bootstrap, jQuery, PH
 
 1. Open the app in your web browser by accessing the local web server's URL.
 2. Explore the app's features, including creating your own blogs, managing them, and discovering blogs created by others.
-3. Interact with the user-friendly interface to navigate through the app and enjoy a seamless blogging experience.
+3. Utilize the secure login and registration feature to access personalized experiences.
+4. Interact with the user-friendly interface to navigate through the app and enjoy a seamless blogging experience.
 
 ## License
 
