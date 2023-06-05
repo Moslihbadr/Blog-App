@@ -52,6 +52,6 @@ Contributions are welcome! If you have any ideas, suggestions, or improvements, 
 
 ## Contact
 
-For any inquiries or feedback, please contact [molihbadr2@gmail.com](mailto:moslihbadr2@gmail.com).
+For any inquiries or feedback, please contact [moslihbadr2@gmail.com](mailto:moslihbadr2@gmail.com).
 
 Happy blogging!
