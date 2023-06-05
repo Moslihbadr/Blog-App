@@ -1,7 +1,6 @@
 <?php 
 include('./php/connect_DB.php');
 
-
 if (isset($_POST['signup'])){
 
   $first_name = $_POST['fname'];
@@ -11,11 +10,16 @@ if (isset($_POST['signup'])){
   
   // Hash the password using bcrypt
   $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-  
-  $query = "INSERT INTO users (fname, lname, email, password) VALUE ('$first_name','$last_name', '$email', '$hashed_password');";
 
-  $exec = mysqli_query($conn, $query);
+  // Use prepared statements 
+  $query = "INSERT INTO users (fname, lname, email, password) VALUES (?, ?, ?, ?)";
+  $stmt = mysqli_prepare($conn, $query);
+  mysqli_stmt_bind_param($stmt, "ssss", $first_name, $last_name, $email, $hashed_password);
+  mysqli_stmt_execute($stmt);
+
+  // Redirect the user to the login page
   header("location: login.php");
+  exit();
 }
 
 ?>

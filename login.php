@@ -1,17 +1,40 @@
 <?php 
 include("./php/connect_DB.php");
 
+$errorMessage = "";
+
 if (isset($_POST["login"])) {
-  
   $email = $_POST["email"];
   $password = $_POST["password"];
 
-  
+  // Query the database for the hashed password
+  $query = "SELECT password FROM users WHERE email=?";
+  $stmt = mysqli_prepare($conn, $query);
+  mysqli_stmt_bind_param($stmt, "s", $email);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
+
+  if (mysqli_num_rows($result) > 0) {
+    // Verify the hashed password
+    $row = mysqli_fetch_assoc($result);
+    $hashed_password = $row["password"];
+    if (password_verify($password, $hashed_password)) {
+      // Start a session
+      session_start();
+      $_SESSION["email"] = $email;
+      $_SESSION["password"] = $password;
+      $_SESSION["login"] = true;
+
+      header('Location: index.php');
+      exit();
+    } else {
+      $errorMessage = "Invalid Password, Try again.";
+    }
+  } else {
+    $errorMessage = "Email Not Found";
+  }
 }
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,28 +48,34 @@ if (isset($_POST["login"])) {
   <title>Login</title>
 </head>
 <body>
-  <?php include("./php/header.php");?>
+  <?php include("./php/header.php"); ?>
   <br><br><br>
   <div class="container my-4" style="max-width: 400px;">
-  <div class="h3 text-center mb-1">Login to Blog App</div>
-    <form class="card p-3 mt-3" method="POST">
+    <div class="h3 text-center mb-1">Login to Blog App</div>
+    <form id="login-form" class="card p-3 mt-3" method="POST">
       <div class="mb-3 form-floating">
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address" name="email">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address" name="email">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
       </div>
       <div class="mb-3 form-floating">
         <input type="password" class="form-control" id="password" placeholder="Password" style="position: relative;" name="password">
         <i class="fa-solid fa-eye eye"></i>
         <label for="password" class="form-label">Password</label>
       </div>
+      <?php if (!empty($errorMessage)): ?>
+        <div class="mt-2 alert alert-danger alert-dismissible fade show text-center" role="alert">
+          <strong><?php echo $errorMessage; ?></strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <?php endif; ?>
       <div class="mb-3 ms-2">
-        <div id="emailHelp" class="form-text">Don't have an account? <a href="./sign_up.php">sign up</a></div>
+        <div id="emailHelp" class="form-text">Don't have an account? <a href="./sign_up.php">Sign up</a></div>
       </div>
       <button type="submit" name="login" class="btn btn-success">Login</button>
     </form>
   </div>
 
-  <?php include("./php/footer.php");?>
+  <?php include("./php/footer.php"); ?>
 
   <script src="../Blog/js/jquery.min.js"></script>
   <script src="../Blog/js/script.js"></script>

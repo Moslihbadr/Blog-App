@@ -1,3 +1,8 @@
+<?php 
+session_start();
+
+?>
+
 <nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-md">
   <div class="container">
     <a class="navbar-brand" href="#">Blog App</a>
@@ -19,12 +24,18 @@
           <li class="nav-item">
             <a class="nav-link" href="../Blog/new_blog.php">New Blog</a>
           </li>
+          <?php if (isset($_SESSION['login'])){ ?>
+          <li class="nav-item">
+            <a href="./php/logout.php" class="nav-link">logout</a>
+          </li>
+          <?php } else {?>
           <li class="nav-item">
             <a class="nav-link" href="../Blog/login.php">Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../Blog/sign_up.php">Sign up</a>
           </li>
+          <?php }; ?>
         </ul>
       </div>
     </div>

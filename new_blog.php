@@ -1,4 +1,3 @@
-<?php include("./php/connect_DB.php");?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +12,14 @@
 </head>
 <body>
 <?php include("./php/header.php");?>
+<?php include("./php/connect_DB.php");
+
+// session_start();
+if (!$_SESSION['login']) {
+  header('Location: login.php');
+}
+
+?>
 <br><br>
   <div class="container d-flex justify-content-center flex-column mt-5 w-100" id="form-container">
     <div class="h1 mt-2  text-center">Start blogging today</div>
