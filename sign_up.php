@@ -1,3 +1,25 @@
+<?php 
+include('./php/connect_DB.php');
+
+
+if (isset($_POST['signup'])){
+
+  $first_name = $_POST['fname'];
+  $last_name = $_POST['lname'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  
+  // Hash the password using bcrypt // Add user signup functionality
+  $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+  
+  $query = "INSERT INTO users (fname, lname, email, password) VALUE ('$first_name','$last_name', '$email', '$hashed_password');";
+
+  $exec = mysqli_query($conn, $query);
+  header("location: login.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +38,7 @@
   <div class="container my-5" style="max-width: 400px;">
   <div class="errorMessage"></div>
   <div class="h3 text-center mb-1">Sign Up Now</div>
-    <form class="card p-3 mt-4" id="signup-form" method="POST">
+    <form action="<?php $_SERVER['PHP_SELF']; ?>" class="card p-3 mt-4" id="signup-form" method="POST">
       <div class="mb-3 form-floating">
         <input type="text" class="form-control" id="fname" aria-describedby="emailHelp" placeholder="First Name" name="fname" required>
         <label for="fname" class="form-label">First Name</label>
@@ -42,7 +64,7 @@
       <div class="mb-3 ms-2">
         <div id="emailHelp" class="form-text">Already have an account? <a href="./login.php">Login</a></div>
       </div>
-      <button type="submit" class="btn btn-success">Login</button>
+      <button type="submit" name="signup" class="btn btn-success">sign up</button>
     </form>
   </div>
 
