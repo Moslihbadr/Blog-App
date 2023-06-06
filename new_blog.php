@@ -34,7 +34,7 @@ if (!$_SESSION['login']) {
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Blog Body :</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="blog_body" required></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" maxlength="1000" rows="3" name="blog_body" required></textarea>
       </div>
       <input type="submit" value="Submit" class="btn btn-outline-success">
     </form>

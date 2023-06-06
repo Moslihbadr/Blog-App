@@ -49,6 +49,7 @@ if (isset($_POST['delete'])) {
         <div class="h6">Writer : <?php echo $row['blog_Writer'] ?></div>
         <small class=""><?php echo $row['blog_DOC'] ?></small>
       </div>
+      <?php  ?>
       <form method="POST">
         <i class="fa fa-trash text-danger me-2 mt-4 fs-md-4" style="cursor: pointer;" for="delete" onclick="document.getElementById('delete').click();">
           <input class='' type="submit" value="" name="delete" id="delete">

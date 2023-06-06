@@ -20,7 +20,7 @@ if (!(session_status() === PHP_SESSION_ACTIVE)) {
         </button>
       </div>
       <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end align-items-center flex-md-grow-1 pe-3">
+        <ul class="navbar-nav justify-content-end flex-md-grow-1 pe-3">
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="../Blog/index.php">Home</a>
           </li>
