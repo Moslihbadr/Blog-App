@@ -24,9 +24,15 @@ if (!(session_status() === PHP_SESSION_ACTIVE)) {
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="../Blog/index.php">Home</a>
           </li>
+          <?php if (isset($_SESSION['user_id'])){ ?>
+          <li class="nav-item">
+            <a class="nav-link" href="../Blog/new_blog.php?id=<?php echo $_SESSION['user_id']; ?>">New Blog</a>
+          </li>
+          <?php } else {?>
           <li class="nav-item">
             <a class="nav-link" href="../Blog/new_blog.php">New Blog</a>
           </li>
+          <?php }; ?>
           <?php if (isset($_SESSION['login'])){ ?>
           <li class="nav-item">
             <a href="./php/logout.php" class="nav-link" title="logout"><i class="fa-solid fa-right-from-bracket"></i></a>

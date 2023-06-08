@@ -63,8 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (!empty($blog_body) && !empty($blog_title) && !empty($blog_writer)) {
     
     // Prepare the query with form data
-    $query = "INSERT INTO blogs (blog_Writer, blog_Title, blog_Body, blog_DOC) VALUES ('$blog_writer', '$blog_title', '$blog_body', '".blog_DOC()."');";
-    
+    $query = "INSERT INTO blogs (blog_Writer, blog_Title, blog_Body, blog_DOC, user_id) VALUES ('$blog_writer', '$blog_title', '$blog_body', '".blog_DOC()."', '1');";
+    echo $_SESSION['user_id'];
     // Execute the query
     $result = mysqli_query($conn, $query);
 

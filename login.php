@@ -17,6 +17,7 @@ if (isset($_POST["login"])) {
   if (mysqli_num_rows($result) > 0) {
     // Verify the hashed password
     $row = mysqli_fetch_assoc($result);
+    $user_id = $row['user_id'];
     $hashed_password = $row["password"];
     if (password_verify($password, $hashed_password)) {
       // Start a session
@@ -24,8 +25,9 @@ if (isset($_POST["login"])) {
       $_SESSION["email"] = $email;
       $_SESSION["password"] = $password;
       $_SESSION["login"] = true;
-
-      header('Location: new_blog.php');
+      $_SESSION['user_id'] = $user_id;
+      
+      header('Location: new_blog.php?id=' . $user_id);
       exit();
     } else {
       $errorMessage = "Invalid Password, Try again.";
