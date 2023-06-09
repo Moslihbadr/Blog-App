@@ -1,8 +1,6 @@
 <?php 
 include("./php/connect_DB.php");
 
-// start a session
-session_start();
 
 $errorMessage = "";
 
@@ -28,9 +26,9 @@ if (isset($_POST["login"])) {
       $_SESSION["email"] = $email;
       $_SESSION["password"] = $password;
       $_SESSION["login"] = true;
-      $_SESSION['user_id'] = $user_id;
+      setcookie("login_user_id", $user_id, time() + 86400); // valid for one day 
       
-      header('Location: new_blog.php?id=' . $user_id);
+      header('Location: new_blog.php?id=' . $_COOKIE["login_user_id"]);
       exit();
     } else {
       $errorMessage = "Invalid Password, Try again.";
@@ -38,7 +36,6 @@ if (isset($_POST["login"])) {
   } else {
     $errorMessage = "Email Not Found";
   }
-  var_dump($_SESSION['user_id']);
 }
 ?>
 
