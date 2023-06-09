@@ -20,10 +20,6 @@ if (!$_SESSION['login']) {
   header('Location: login.php');
 }
 
-// retrieve the user id
-$user_id = $_GET['id'];
-echo $user_id;
-
 ?>
 <br><br>
   <div class="container d-flex justify-content-center flex-column mt-5 w-100" id="form-container">
@@ -70,16 +66,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (!empty($blog_body) && !empty($blog_title) && !empty($blog_writer)) {
     
     // Prepare the query with form data
-    $query = "INSERT INTO blogs (blog_Writer, blog_Title, blog_Body, blog_DOC, user_id) VALUES ('$blog_writer', '$blog_title', '$blog_body', '".blog_DOC()."', '$user_id');";
+    $query = "INSERT INTO blogs (blog_Writer, blog_Title, blog_Body, blog_DOC, user_id) VALUES ('$blog_writer', '$blog_title', '$blog_body', '".blog_DOC()."', '".$_COOKIE['login_user_id']."');";
 
-    var_dump($user_id);
     // Execute the query
     $result = mysqli_query($conn, $query);
 
     echo "<script> $('#form-container').before(`<div class='mt-2 alert alert-success alert-dismissible fade show text-center' role='alert'><strong>Blog successfully Added.</strong><button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>`)</script>";
-
-
-
+  
   }
   else {
     echo "<script> $('#form-container').before(`<div class='mt-2 alert alert-danger alert-dismissible fade show text-center' role='alert'><strong>Please Fill All Inputs.</strong><button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>`)</script>";
