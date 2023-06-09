@@ -1,6 +1,9 @@
 <?php 
 include("./php/connect_DB.php");
 
+// start a session
+session_start();
+
 $errorMessage = "";
 
 if (isset($_POST["login"])) {
@@ -8,7 +11,7 @@ if (isset($_POST["login"])) {
   $password = $_POST["password"];
 
   // Query the database for the hashed password
-  $query = "SELECT password FROM users WHERE email=?";
+  $query = "SELECT * FROM users WHERE email=?";
   $stmt = mysqli_prepare($conn, $query);
   mysqli_stmt_bind_param($stmt, "s", $email);
   mysqli_stmt_execute($stmt);
@@ -35,6 +38,7 @@ if (isset($_POST["login"])) {
   } else {
     $errorMessage = "Email Not Found";
   }
+  var_dump($_SESSION['user_id']);
 }
 ?>
 
@@ -77,7 +81,7 @@ if (isset($_POST["login"])) {
     </form>
   </div>
 
-  <?php include("./php/footer.php"); ?>
+  <?php include("./php/footer.php");?>
 
   <script src="../Blog/js/jquery.min.js"></script>
   <script src="../Blog/js/script.js"></script>
