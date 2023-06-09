@@ -22,6 +22,8 @@
         </div>
       ';
     }
+
+    
   ?>
     <div class="container mt-5">
       <div class="h3 text-capitalize mb-4">Discover our blog collection</div>
