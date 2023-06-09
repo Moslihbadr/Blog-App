@@ -10,13 +10,19 @@
   <title>New Blog</title>
 </head>
 <body>
-<?php include("./php/header.php");?>
-<?php include("./php/connect_DB.php");
+<?php 
+
+include("./php/header.php");
+include("./php/connect_DB.php");
 
 // session_start();
 if (!$_SESSION['login']) {
   header('Location: login.php');
 }
+
+// retrieve the user id
+$user_id = $_GET['id'];
+echo $user_id;
 
 ?>
 <br><br>
@@ -55,6 +61,7 @@ function blog_DOC() {
   return $formattedDateTime;
 }
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $blog_writer = $_POST['blog_writer'];
   $blog_title = $_POST['blog_title'];
@@ -63,8 +70,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (!empty($blog_body) && !empty($blog_title) && !empty($blog_writer)) {
     
     // Prepare the query with form data
-    $query = "INSERT INTO blogs (blog_Writer, blog_Title, blog_Body, blog_DOC, user_id) VALUES ('$blog_writer', '$blog_title', '$blog_body', '".blog_DOC()."', '1');";
-    echo $_SESSION['user_id'];
+    $query = "INSERT INTO blogs (blog_Writer, blog_Title, blog_Body, blog_DOC, user_id) VALUES ('$blog_writer', '$blog_title', '$blog_body', '".blog_DOC()."', '$user_id');";
+
+    var_dump($user_id);
     // Execute the query
     $result = mysqli_query($conn, $query);
 
@@ -77,8 +85,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "<script> $('#form-container').before(`<div class='mt-2 alert alert-danger alert-dismissible fade show text-center' role='alert'><strong>Please Fill All Inputs.</strong><button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>`)</script>";
   }
 }
-
-
 
 
 ?>
