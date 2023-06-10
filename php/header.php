@@ -36,7 +36,7 @@ if (!(session_status() === PHP_SESSION_ACTIVE)) {
             <a class="nav-link" href="../Blog/login.php">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../Blog/sign_up.php">Sign up</a>
+            <a class="nav-link" href="../Blog/signup.php">Sign up</a>
           </li>
           <?php }; ?>
         </ul>

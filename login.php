@@ -28,7 +28,7 @@ if (isset($_POST["login"])) {
       $_SESSION["login"] = true;
       setcookie('login_user_id', $user_id, time() + 86400, '/website/Blog', 'localhost'); // valid for one day
       
-      header('Location: new_blog.php?id=' . $_COOKIE["login_user_id"]);
+      header('Location: new_blog.php?id=' . $user_id);
       exit();
     } else {
       $errorMessage = "Invalid Password, Try again.";
@@ -72,7 +72,7 @@ if (isset($_POST["login"])) {
         <label for="password" class="form-label">Password</label>
       </div>
       <div class="mb-3 ms-2">
-        <div id="emailHelp" class="form-text">Don't have an account? <a href="./sign_up.php">Sign up</a></div>
+        <div id="emailHelp" class="form-text">Don't have an account? <a href="./signup.php">Sign up</a></div>
       </div>
       <button type="submit" name="login" class="btn btn-success">Login</button>
     </form>
