@@ -26,7 +26,7 @@ if (isset($_POST["login"])) {
       $_SESSION["email"] = $email;
       $_SESSION["password"] = $password;
       $_SESSION["login"] = true;
-      setcookie("login_user_id", $user_id, time() + 86400); // valid for one day 
+      setcookie('login_user_id', $user_id, time() + 86400, '/website/Blog', 'localhost'); // valid for one day
       
       header('Location: new_blog.php?id=' . $_COOKIE["login_user_id"]);
       exit();
