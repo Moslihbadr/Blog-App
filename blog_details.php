@@ -49,12 +49,48 @@ if (isset($_POST['delete'])) {
         <div class="h6">Writer : <?php echo $row['blog_Writer'] ?></div>
         <small class=""><?php echo $row['blog_DOC'] ?></small>
       </div>
-      <?php  ?>
+      
+      <!-- hide the delete button from all users except blog owner and 'admin' users -->
+      <?php  
+        // initialize the show delete button to false
+        $show_delete_button = false;
+
+        // retrieve the blog owner id
+        $user_id = $row['user_id'];
+
+        // get the login user id
+        if (isset($_COOKIE['login_user_id'])) {
+          $login_user_id = $_COOKIE['login_user_id'];
+        }else {
+          $login_user_id = NULL;
+        }
+        if ($login_user_id === $user_id) {
+          $show_delete_button = true;
+        }
+        
+        // check if the user is an admin
+        $user_type = '';
+        if (isset($_COOKIE['login_user_id'])) {
+          $sql = "SELECT * FROM users WHERE user_id='$login_user_id' ";
+          $sql_result = mysqli_query($conn, $sql);
+          $user_row = mysqli_fetch_assoc($sql_result);
+          $user_type = $user_row['user_type'];
+        }
+        
+        // check if the user is admin
+        if ($user_type === 'admin') {
+          $show_delete_button = true;
+        }
+
+        // display the delete button if the user is the blog owner or the user is an admin
+        if ($show_delete_button === true):
+      ?>
       <form method="POST">
         <i class="fa fa-trash text-danger me-2 mt-4 fs-md-4" style="cursor: pointer;" for="delete" onclick="document.getElementById('delete').click();">
-          <input class='' type="submit" value="" name="delete" id="delete">
+          <input value="" type="submit" name="delete" id="delete">
         </i>
       </form>
+      <?php endif;?>
     </div>
     <div class="ps-2">
       <?php echo $row['blog_Body'] ?>
