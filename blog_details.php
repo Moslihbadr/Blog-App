@@ -64,11 +64,12 @@ if (isset($_POST['delete'])) {
         }else {
           $login_user_id = NULL;
         }
+
+        // check if the logged-in user is the blog owner or an admin
         if ($login_user_id === $user_id) {
           $show_delete_button = true;
         }
         
-        // check if the user is an admin
         $user_type = '';
         if (isset($_COOKIE['login_user_id'])) {
           $sql = "SELECT * FROM users WHERE user_id='$login_user_id' ";
