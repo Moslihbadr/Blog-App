@@ -1,3 +1,1 @@
-1 - clear the coockie when the user logout.################################################### // DONE! 
-2 - hide the delete blog feature from everyone except the blog owner and 'admin' users.####### // DONE!
-3 - hide the login/singup pages if the user is logged in.##################################### // DONE! 
+1 - Implement Blog Post Update Functionality
