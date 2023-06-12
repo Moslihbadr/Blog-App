@@ -1,0 +1,1 @@
+ErrorDocument 404 http://localhost/website/Blog/404.php
