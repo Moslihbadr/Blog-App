@@ -1,7 +1,7 @@
 <?php 
 include('./php/connect_DB.php');
 
-session_start();
+// session_start();
 // check if the user is logged in
 if (isset($_COOKIE['login_user_id'])) {
   header('location: index.php');
