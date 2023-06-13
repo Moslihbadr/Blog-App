@@ -50,21 +50,21 @@ if (isset($_POST['delete'])) {
         <small class=""><?php echo $row['blog_DOC'] ?></small>
       </div>
       
-      <!-- hide the delete button from all users except blog owner and 'admin' users -->
-      <?php  
+        <!-- hide the delete button from all users except blog owner and 'admin' users -->
+        <?php  
         // initialize the show delete button to false
         $show_delete_button = false;
-
+        
         // retrieve the blog owner id
         $user_id = $row['user_id'];
-
+        
         // get the login user id
         if (isset($_COOKIE['login_user_id'])) {
           $login_user_id = $_COOKIE['login_user_id'];
         }else {
           $login_user_id = NULL;
         }
-
+        
         // check if the logged-in user is the blog owner or an admin
         if ($login_user_id === $user_id) {
           $show_delete_button = true;
@@ -87,7 +87,7 @@ if (isset($_POST['delete'])) {
         if ($show_delete_button === true):
       ?>
       <form method="POST">
-        <i class="fa fa-trash text-danger me-2 mt-4 fs-md-4" style="cursor: pointer;" for="delete" onclick="document.getElementById('delete').click();">
+        <i class="fa fa-trash text-danger me-2 mt-4 fs-md-4" title="Delete" style="cursor: pointer;" for="delete" onclick="document.getElementById('delete').click();">
           <input value="" type="submit" name="delete" id="delete">
         </i>
       </form>
