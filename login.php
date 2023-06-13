@@ -34,7 +34,7 @@ if (isset($_POST["login"])) {
       $_SESSION["login"] = true;
       setcookie('login_user_id', $user_id, time() + 86400, '/website/Blog', 'localhost'); // valid for one day
       
-      header('Location: new_blog.php?id=' . $user_id);
+      header('Location: new_blog.php');
       exit();
     } else {
       $errorMessage = "Invalid Password, Try again.";
