@@ -29,9 +29,6 @@ if (!(session_status() === PHP_SESSION_ACTIVE)) {
           </li>
           <?php if (isset($_SESSION['login'])){ ?>
           <li class="nav-item">
-            <a href="../Blog/myProfile.php" class="nav-link"><i class="fa-solid fa-user"></i></a>
-          </li>
-          <li class="nav-item">
             <a href="./php/logout.php" class="nav-link" title="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
           </li>
           <?php } else {?>
