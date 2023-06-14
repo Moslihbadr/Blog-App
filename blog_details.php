@@ -25,6 +25,8 @@ if (isset($_POST['delete'])) {
 
   // Redirect the user back to the blog listing page
   header("Location: /website/blog/index.php?blog_deleted=true");  
+}else if (isset($_POST['update'])) {
+  header("Location: /website/blog/new_blog.php?blog_id=$blog_ID");
 }
 ?>
 
@@ -52,8 +54,9 @@ if (isset($_POST['delete'])) {
       
         <!-- hide the delete button from all users except blog owner and 'admin' users -->
         <?php  
-        // initialize the show delete button to false
+        // initialize the show delete/update button to false
         $show_delete_button = false;
+        $show_update_button = false;
         
         // retrieve the blog owner id
         $user_id = $row['user_id'];
@@ -68,6 +71,7 @@ if (isset($_POST['delete'])) {
         // check if the logged-in user is the blog owner or an admin
         if ($login_user_id === $user_id) {
           $show_delete_button = true;
+          $show_update_button = true;
         }
         
         $user_type = '';
@@ -85,13 +89,17 @@ if (isset($_POST['delete'])) {
 
         // display the delete button if the user is the blog owner or the user is an admin
         if ($show_delete_button === true):
-      ?>
-      <form method="POST">
-        <i class="fa fa-trash text-danger me-2 mt-4 fs-md-4" title="Delete" style="cursor: pointer;" for="delete" onclick="document.getElementById('delete').click();">
-          <input value="" type="submit" name="delete" id="delete">
-        </i>
-      </form>
-      <?php endif;?>
+        ?>
+        <form method="POST">
+          <i class="fa fa-trash text-danger me-2 mt-4 fs-md-4" title="Delete" style="cursor: pointer;" onclick="document.querySelector('#delete').click();">
+          <input value="" type="submit" name="delete" style="background-color:#EEE; border:none" id="delete">
+          </i>
+          <?php endif;if ($show_update_button):?>
+          <i class="fa fa-pen me-2 mt-4 fs-md-4" title="Udate" style="cursor: pointer;" onclick="document.querySelector('#update').click();">
+          <input value="" type="submit" name="update" style="background-color:#EEE; border:none" id="update">
+          </i>
+          <?php endif; ?>
+        </form>
     </div>
     <div class="ps-2">
       <?php echo $row['blog_Body'] ?>
