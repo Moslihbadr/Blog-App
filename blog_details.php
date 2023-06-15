@@ -95,7 +95,7 @@ if (isset($_POST['delete'])) {
           <input value="" type="submit" name="delete" style="background-color:#EEE; border:none" id="delete">
           </i>
           <?php endif;if ($show_update_button):?>
-          <i class="fa fa-pen me-2 mt-4 fs-md-4" title="Udate" style="cursor: pointer;" onclick="document.querySelector('#update').click();">
+          <i class="fa fa-pen me-2 mt-4 fs-md-4" title="Update" style="cursor: pointer;" onclick="document.querySelector('#update').click();">
           <input value="" type="submit" name="update" style="background-color:#EEE; border:none" id="update">
           </i>
           <?php endif; ?>
