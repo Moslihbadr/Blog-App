@@ -12,6 +12,7 @@
 </head>
 
 <body>
+  <br><br>
 <?php
   include("./php/header.php");
   include("./php/connect_DB.php");
@@ -36,6 +37,9 @@
   $query = "SELECT * FROM blogs WHERE blog_ID = $blog_id";
   $result = mysqli_query($conn, $query);
   $blog = mysqli_fetch_assoc($result);
+  $current_blog_title = $blog['blog_Title'];
+  $current_blog_writer = $blog['blog_Writer'];
+  $current_blog_body = $blog['blog_Body'];
 
   // Check if the form is submitted
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -69,21 +73,20 @@
     }
   }
   ?>
-  <br><br>
   <div class="container d-flex justify-content-center flex-column mt-5 w-100" id="form-container">
     <div class="h1 mt-2  text-center">Update Your Blog</div>
     <form class="mt-5" method="POST">
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">New Name :</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" name="blog_writer" required>
+        <input type="text" value="<?php echo $current_blog_writer ?>" class="form-control" id="exampleFormControlInput1" name="blog_writer" required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlInput2" class="form-label">New Blog Title :</label>
-        <input type="text" class="form-control" id="exampleFormControlInput2" name="blog_title" required>
+        <input type="text" value="<?php echo $current_blog_title ?>" class="form-control" id="exampleFormControlInput2" name="blog_title" required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">New Blog Body :</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" maxlength="1000" rows="3" name="blog_body" required></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" maxlength="1000" rows="3" name="blog_body" required><?php echo $current_blog_body ?></textarea>
       </div>
       <input type="submit" value="Update" class="btn btn-outline-success">
     </form>
