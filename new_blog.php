@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="../Blog/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="../Blog/css/style.css?<?php rand(1, 9) ?>" />
@@ -85,46 +85,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "<script> $('#form-container').before(`<div class='mt-2 alert alert-danger alert-dismissible fade show text-center' role='alert'><strong>Please Fill All Inputs.</strong><button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>`)</script>";
   }
 }
-
-
-// update blog
-  // // Fetch existing blog data for update
-  // $blog_id = $_GET['blog_id'];
-  // $query = "SELECT * FROM blogs WHERE blog_ID = $blog_id";
-  // $result = mysqli_query($conn, $query);
-  // $blog = mysqli_fetch_assoc($result);
-
-  // // Check if the form is submitted for update
-  // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  //   $blog_writer = $_POST['blog_writer'];
-  //   $blog_title = $_POST['blog_title'];
-  //   $blog_body = $_POST['blog_body'];
-    
-  //   if (!empty($blog_body) && !empty($blog_title) && !empty($blog_writer)) {
-  //     // Prepare the query with form data
-  //     $query = "UPDATE blogs SET blog_Writer='" . mysqli_real_escape_string($conn, $blog_writer) . "', blog_Title='" . mysqli_real_escape_string($conn, $blog_title) . "', blog_Body='" . mysqli_real_escape_string($conn, $blog_body) . "', blog_DOC='" . mysqli_real_escape_string($conn, blog_DOC()) . "', user_id='" . mysqli_real_escape_string($conn, $_COOKIE['login_user_id']) . "' WHERE blog_ID=$blog_id";
-
-  //     // Execute the query
-  //     $result = mysqli_query($conn, $query);
-
-  //     if ($result) {
-  //       echo "<div class='mt-2 alert alert-success alert-dismissible fade show text-center' role='alert'>
-  //               <strong>Blog successfully updated.</strong>
-  //               <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-  //             </div>";
-  //     } else {
-  //       echo "<div class='mt-2 alert alert-danger alert-dismissible fade show text-center' role='alert'>
-  //               <strong>Error updating blog.</strong>
-  //               <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-  //             </div>";
-  //     }
-  //   } else {
-  //     echo "<div class='mt-2 alert alert-danger alert-dismissible fade show text-center' role='alert'>
-  //             <strong>Please fill in all inputs.</strong>
-  //             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-  //           </div>";
-  //   }
-  // }
-
 
 ?>
