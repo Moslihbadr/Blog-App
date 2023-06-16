@@ -25,10 +25,11 @@ if (isset($_POST['delete'])) {
 
   // Redirect the user back to the blog listing page
   header("Location: /website/blog/index.php?blog_deleted=true");  
-}else if (isset($_POST['update'])) {
-  header("Location: /website/blog/new_blog.php?blog_id=$blog_ID");
 }
-?>
+// else if (isset($_POST['update'])) {
+//   header("Location: /website/blog/new_blog.php?blog_id=$blog_ID");
+// }
+  ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -95,9 +96,7 @@ if (isset($_POST['delete'])) {
           <input value="" type="submit" name="delete" style="background-color:#EEE; border:none" id="delete">
           </i>
           <?php endif;if ($show_update_button):?>
-          <i class="fa fa-pen me-2 mt-4 fs-md-4" title="Update" style="cursor: pointer;" onclick="document.querySelector('#update').click();">
-          <input value="" type="submit" name="update" style="background-color:#EEE; border:none" id="update">
-          </i>
+          <a href="./update_blog.php?blog_id=<?php echo $blog_ID ?>"><i class="fa fa-pen me-2 mt-4 fs-md-4" title="Update" style="cursor: pointer;"></i></a>
           <?php endif; ?>
         </form>
     </div>
